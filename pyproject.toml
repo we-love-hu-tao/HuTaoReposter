@@ -1,0 +1,12 @@
+[project]
+name = "hutaoreposter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.21.0",
+    "loguru>=0.7.3",
+    "python-dotenv>=1.1.1",
+    "vkbottle>=4.5.2",
+]
