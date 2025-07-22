@@ -220,7 +220,7 @@ async def tg_post_group_media_handler(message: types.Message, album: list[types.
     # Handle media group posts coming from TG
     # TODO?: Make this a rule
 
-    if message.chat.id != TG_CHANNEL_ID:
+    if str(message.chat.id) != TG_CHANNEL_ID:
         return
 
     logger.info("TG - New media group post, sending to admins")
@@ -232,7 +232,7 @@ async def tg_post_handler(message: types.Message):
     # Handle group posts coming from TG
     # TODO?: Make this a rule
 
-    if message.chat.id != TG_CHANNEL_ID:
+    if str(message.chat.id) != TG_CHANNEL_ID:
         return
 
     logger.info("TG - New post, sending to admins")
