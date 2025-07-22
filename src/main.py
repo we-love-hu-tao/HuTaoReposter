@@ -218,6 +218,11 @@ async def tg_handle_posting(uuid_hex: str, decision: str, callback_query: types.
 @dp.channel_post(F.media_group_id)
 async def tg_post_group_media_handler(message: types.Message, album: list[types.Message]):
     # Handle media group posts coming from TG
+    # TODO?: Make this a rule
+
+    if message.chat.id != TG_CHANNEL_ID:
+        return
+
     logger.info("TG - New media group post, sending to admins")
     await tg_suggest_post_to(album, TG_ADMIN_IDS)
 
@@ -225,6 +230,11 @@ async def tg_post_group_media_handler(message: types.Message, album: list[types.
 @dp.channel_post()
 async def tg_post_handler(message: types.Message):
     # Handle group posts coming from TG
+    # TODO?: Make this a rule
+
+    if message.chat.id != TG_CHANNEL_ID:
+        return
+
     logger.info("TG - New post, sending to admins")
     await tg_suggest_post_to([message], TG_ADMIN_IDS)
 
